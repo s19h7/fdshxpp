@@ -1,0 +1,21 @@
+{% extends 'dsh/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for op in options %}
+    <li>
+        {% if op.photo %}
+        <p><img class="img-article-left thumb" src="{{op.photo.url}}"></p>
+        {% endif %}
+
+
+        <h2>{{op.title}}</h2>
+        {% autoescape on %}
+        {{op.content|linebreaks|truncatewords:50}}
+        {% endautoescape %}
+        <div class="clear"></div>
+        <p class="link-read-option"><a href="{{ op.get_absolute_url }}">Try</a></p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

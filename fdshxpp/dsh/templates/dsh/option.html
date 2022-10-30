@@ -1,0 +1,11 @@
+{% extends 'dsh/base.html' %}
+
+{% block content %}
+<h1>{{option.title}}</h1>
+
+{% if option.photo %}
+<p><img class="img-article-left" src="{{option.photo.url}}"></p>
+{% endif %}
+
+{{option.content|linebreaks}}
+{% endblock %}
